@@ -50,6 +50,7 @@ def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     #my_cur.execute("SELECT * from fruit_load_list")
     my_cur.execute("show warehouses in account")
+    my_cur.execute("select * from table(result_scan(last_query_id()))")
     return my_cur.fetchall()
 
 # Add a button to load the fruit
